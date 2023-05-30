@@ -89,7 +89,6 @@ if __name__ == "__main__":  # --------------------------------------------------
 
 
 # ----------------------- GENERATE DATA ----------------------- #
-    # MODEL FROM KUMMERFELD-RAMSEY PAPER
     inaccurate_clusters = 0  # number fo inaccurate clusters
     ind = []  # indicator of inaccurate cluster
     for i in range(300):
