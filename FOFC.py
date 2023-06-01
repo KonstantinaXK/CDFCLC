@@ -84,14 +84,13 @@ def SelectedClusters(cluster_list):
 if __name__ == "__main__":  # ----------------------------------------------------------------------------- #
     N = 10000  # observations
     B = 100  # simulation realizations of bootstrap
-    alpha = 0.01  # p-value threshold
     vrbl = [i for i in range(10)]  # number of all variables
 
 
 # ----------------------- GENERATE DATA ----------------------- #
     inaccurate_clusters = 0  # number fo inaccurate clusters
     ind = []  # indicator of inaccurate cluster
-    for i in range(300):
+    for i in range(500):  # testing for 500 obs matrices
         Xdata = np.zeros((N, 10))  # obs matrix for all variables
         Xdata1 = np.zeros((N, 5))
         Xdata2 = np.zeros((N, 5))
@@ -123,7 +122,7 @@ if __name__ == "__main__":  # --------------------------------------------------
         Xdata /= Xdata.std(axis=0, keepdims=True)
 
 # --------------------------------------------------------------------- #
-        PureList = FindPureClusters(vrbl, Xdata, alpha=0.2)
+        PureList = FindPureClusters(vrbl, Xdata, alpha=0.05)
         CList = GrowClusters(PureList, par=0.7)
         Sel_Clusters = SelectedClusters(CList)
         print('Non-intersecting Clusters:', Sel_Clusters)
